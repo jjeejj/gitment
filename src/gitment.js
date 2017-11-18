@@ -154,7 +154,7 @@ class Gitment {
 
     return http.post(`/repos/${owner}/${repo}/issues`, {
       title,
-      labels: labels.concat(['gitment', id]),
+      labels: labels.concat(['gitment', id.replace(/,/g,'，')])//由于创建label的时候的名称是不支持英文的,的，会报错422，github无法解析处理，所以此处建议替换为中文
       body: `${link}\n\n${desc}`,
     })
       .then((meta) => {
@@ -186,7 +186,7 @@ class Gitment {
     const { id, owner, repo } = this
     return http.get(`/repos/${owner}/${repo}/issues`, {
         creator: owner,
-        labels: id,
+        labels: id.replace(/,/g,'，')
       })
       .then(issues => {
         if (!issues.length) return Promise.reject(NOT_INITIALIZED_ERROR)
