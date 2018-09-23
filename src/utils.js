@@ -37,7 +37,7 @@ export const Query = {
 }
 
 function ajaxFactory(method) {
-  return function(apiPath, data = {}, base = 'https://api.github.com') {
+  return function(apiPath, data = {}, base = 'https://api.github.com',headers={}) {
     const req = new XMLHttpRequest()
     const token = localStorage.getItem(LS_ACCESS_TOKEN_KEY)
 
@@ -73,6 +73,11 @@ function ajaxFactory(method) {
     if (method !== 'GET' && method !== 'DELETE') {
       body = JSON.stringify(data)
       req.setRequestHeader('Content-Type', 'application/json')
+    }
+
+    //设置自定义的 header
+    for(let header in headers){
+      req.setRequestHeader([header], headers[header]);
     }
 
     req.send(body)
