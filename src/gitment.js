@@ -99,11 +99,11 @@ class Gitment {
       }, options)
 
       this.state.user.isLoggingIn = true
-      http.post('https://gh-oauth.imsun.net', {
+      http.post('https://cors.wenjunjiang.win/?remoteUrl=https://github.com/login/oauth/access_token', {
           code,
           client_id,
           client_secret,
-        }, '')
+        }, '',{Accept:'application/json'})
         .then(data => {
           this.accessToken = data.access_token
           this.update()
@@ -154,7 +154,7 @@ class Gitment {
 
     return http.post(`/repos/${owner}/${repo}/issues`, {
       title,
-      labels: labels.concat(['gitment', id.replace(/,/g,'，')])//由于创建label的时候的名称是不支持英文的,的，会报错422，github无法解析处理，所以此处建议替换为中文
+      labels: labels.concat(['gitment', id.replace(/,/g,'，')]),//由于创建label的时候的名称是不支持英文的,的，会报错422，github无法解析处理，所以此处建议替换为中文
       body: `${link}\n\n${desc}`,
     })
       .then((meta) => {
