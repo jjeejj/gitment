@@ -1,17 +1,7 @@
 # Gitment
 
-
-[![NPM version][npm-image]][npm-url]
-
-[npm-image]: https://img.shields.io/npm/v/gitment.svg
-[npm-url]: https://www.npmjs.com/package/gitment
-
 Gitment is a comment system based on GitHub Issues,
 which can be used in the frontend without any server-side implementation.
-
-[Demo Page](https://imsun.github.io/gitment/)
-
-[中文简介](https://imsun.net/posts/gitment-introduction/)
 
 - [Features](#features)
 - [Get Started](#get-started)
@@ -33,22 +23,11 @@ which can be used in the frontend without any server-side implementation.
 ### 1. Install
 
 ```html
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
 ```
 
 ```html
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-```
-
-or via npm:
-
-```sh
-$ npm i --save gitment
-```
-
-```javascript
-import 'gitment/style/default.css'
-import Gitment from 'gitment'
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 ```
 
 ### 2. Register An OAuth Application
