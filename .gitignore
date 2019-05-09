@@ -7,3 +7,4 @@ dist/*
 !dist/gitment.browser.js
 test/config.js
 index.html
+.vscode
